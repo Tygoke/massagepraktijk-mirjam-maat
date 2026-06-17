@@ -1,0 +1,81 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: nl
+site_url: https://massagepraktijk-mirjam-maat.netlify.app
+display_url: https://massagepraktijk-mirjam-maat.netlify.app
+
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: nieuws
+    label: "Nieuws & aanbiedingen"
+    files:
+      - name: berichten
+        label: Nieuwsberichten
+        file: data/nieuws.json
+        fields:
+          - label: Berichten
+            name: berichten
+            widget: list
+            summary: "{{fields.datum}} — {{fields.titel}}"
+            fields:
+              - label: Datum
+                name: datum
+                widget: string
+                hint: "Bijv. 'Voorjaar 2026' of '1 april 2025'"
+              - label: Badge
+                name: badge
+                widget: string
+                required: false
+                hint: "Laat leeg voor geen badge. Bijv. 'Nieuw' of 'Let op'"
+              - label: Badge-kleur
+                name: badge_type
+                widget: select
+                required: false
+                default: ""
+                options:
+                  - { label: "Groen (standaard)", value: "" }
+                  - { label: "Amber (waarschuwing)", value: "amber" }
+              - label: Titel
+                name: titel
+                widget: string
+              - label: Tekst
+                name: tekst
+                widget: text
+                hint: "Platte tekst. Voor meerdere alineas, gebruik een lege regel ertussen."
+
+  - name: tarieven
+    label: Tarieven
+    files:
+      - name: blokken
+        label: Tarieven beheren
+        file: data/tarieven.json
+        fields:
+          - label: Tarievenblokken
+            name: blokken
+            widget: list
+            summary: "{{fields.titel}}"
+            fields:
+              - label: Categorie-titel
+                name: titel
+                widget: string
+                hint: "Bijv. 'Oliemassages — 60 minuten'"
+              - label: Beschikbaarheid
+                name: status
+                widget: select
+                options:
+                  - { label: "Open voor nieuwe klanten", value: "open" }
+                  - { label: "Gesloten voor nieuwe klanten", value: "dicht" }
+              - label: Statusmelding
+                name: statusmelding
+                widget: string
+                hint: "Korte toelichting bij de status"
+              - label: Prijsregels
+                name: prijzen
+                widget: list
+                fields:
+                  - { label: Behandeling, name: naam, widget: string }
+                  - { label: "Prijs (bijv. € 60,-)", name: prijs, widget: string }

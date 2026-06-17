@@ -1,0 +1,4 @@
+# Massagepraktijk Mirjam Maat — statische multi-page site
+[build]
+  publish = "."
+  command = ""

@@ -1,0 +1,46 @@
+{
+  "blokken": [
+    {
+      "titel": "Oliemassages — 60 minuten",
+      "status": "dicht",
+      "statusmelding": "Gesloten voor nieuwe klanten per januari 2026. Bestaande klanten kunnen nog afspraken maken.",
+      "prijzen": [
+        { "naam": "Sport- of ontspanningsmassage", "prijs": "€ 60,-" },
+        { "naam": "Hoofdpijnmassage (rug / nek / schouders)", "prijs": "€ 60,-" },
+        { "naam": "Zwangerschapsmassage", "prijs": "€ 60,-" },
+        { "naam": "Mama-massage", "prijs": "€ 60,-" }
+      ]
+    },
+    {
+      "titel": "Massage over de kleding — 60 minuten",
+      "status": "open",
+      "statusmelding": "Beschikbaar voor nieuwe klanten",
+      "prijzen": [
+        { "naam": "Holistic Pulsing", "prijs": "€ 55,-" },
+        { "naam": "Shiatsu ontspanningsmassage", "prijs": "€ 55,-" }
+      ]
+    },
+    {
+      "titel": "Shiatsu-therapie incl. Japanse acupunctuur",
+      "status": "open",
+      "statusmelding": "Beschikbaar voor nieuwe klanten",
+      "prijzen": [
+        { "naam": "Intake + shiatsu massage (90 min)", "prijs": "€ 75,-" },
+        { "naam": "5 wekelijkse behandelingen (50 min)", "prijs": "€ 225,-" },
+        { "naam": "5 sessies om de week (50 min)", "prijs": "€ 245,-" },
+        { "naam": "Losse sessie Japanse acupunctuur (60 min)", "prijs": "€ 55,-" }
+      ]
+    },
+    {
+      "titel": "Cursussen",
+      "status": "open",
+      "statusmelding": "Beschikbaar",
+      "prijzen": [
+        { "naam": "Kindermassage 4–12 jaar (25 min)", "prijs": "€ 30,-" },
+        { "naam": "Privéles babymassage (3 × 1 uur)", "prijs": "€ 150,- p/p" },
+        { "naam": "Vriendinnen babymassage (3 × 1,5 uur — 2 p.)", "prijs": "€ 110,- p/p" },
+        { "naam": "Privéles kindermassage (2 × 1 uur)", "prijs": "€ 150,-" }
+      ]
+    }
+  ]
+}
