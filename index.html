@@ -215,19 +215,7 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script src="main.js"></script>
-<script>
-document.getElementById('jaar').textContent = new Date().getFullYear();
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on('init', function(user) {
-    if (!user) {
-      window.netlifyIdentity.on('login', function() {
-        document.location.href = '/admin/';
-      });
-    }
-  });
-}
-</script>
+<script>document.getElementById('jaar').textContent = new Date().getFullYear();</script>
 </body>
 </html>
