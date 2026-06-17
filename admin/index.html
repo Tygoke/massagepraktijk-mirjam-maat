@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Inhoudsbeheer · Massagepraktijk Mirjam Maat</title>
-  <script>
-    // Forceer lichte modus voordat het CMS laadt
-    const _origMatchMedia = window.matchMedia.bind(window);
-    window.matchMedia = function(query) {
-      if (query.includes('prefers-color-scheme')) {
-        const result = _origMatchMedia(query);
-        const forcedLight = query.includes('dark')
-          ? Object.assign(Object.create(result), { matches: false })
-          : Object.assign(Object.create(result), { matches: true });
-        return forcedLight;
-      }
-      return _origMatchMedia(query);
-    };
-  </script>
 </head>
 <body>
   <script src="sveltia-cms.js"></script>
