@@ -8,6 +8,7 @@ backend:
 locale: nl
 site_url: https://massagepraktijk-mirjam-maat.netlify.app
 display_url: https://massagepraktijk-mirjam-maat.netlify.app
+logo_url: /admin/logo.svg
 
 media_folder: images
 public_folder: /images
