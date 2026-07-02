@@ -1,0 +1,15 @@
+{
+  "regels": [
+    { "titel": "Enkel op afspraak.", "tekst": "Een afspraak maken kan per telefoon, app of e-mail. Geef bij app of mail aan op welke dagen je kunt, dan stuur ik enkele voorstellen door." },
+    { "titel": "Annuleren tot 24 uur vooraf is kosteloos.", "tekst": "Bij annulering binnen 24 uur voor de afspraak ben ik genoodzaakt een factuur met de volledige kosten te sturen. Annuleren kan via telefoon en e-mail." },
+    { "titel": "Eerste behandeling.", "tekst": "Voor aanvang stel ik enkele vragen over je gezondheid. Ben je al onder behandeling van een arts of therapeut, of gebruik je medicijnen, dan kan ik je vragen te overleggen of een massage in deze periode wenselijk is." },
+    { "titel": "Niet met een volle maag.", "tekst": "Houd er rekening mee dat je niet met een volle maag komt; eet het laatste uur voor de massage liever niets." },
+    { "titel": "Géén erotische massages.", "tekst": "Massagepraktijk Mirjam Maat geeft uitsluitend therapeutische en ontspannende massages." },
+    { "titel": "Aansprakelijkheid.", "tekst": "De praktijk is niet aansprakelijk voor beschadiging of verlies van persoonlijke bezittingen." },
+    { "titel": "Hygiëne.", "tekst": "Ik zorg voor een prettige werkruimte en schone handdoeken. Fijn als je daar zelf ook aan denkt — neem bijvoorbeeld vooraf een douche of bad." },
+    { "titel": "Natuurlijke oliën.", "tekst": "Ik werk met oliën op natuurlijke basis. Soms worden etherische oliën gebruikt of bijgemengd met de massageolie." },
+    { "titel": "Telefoons uit", "tekst": "tijdens de massage." },
+    { "titel": "Eerlijk over je gezondheid.", "tekst": "Houd je informatie achter over eventuele ziektes of blessures, dan kun je mij niet verantwoordelijk houden voor de resultaten of gevolgen tijdens of na de massage." },
+    { "titel": "Contra-indicaties.", "tekst": "Kijk bij iedere soort massage naar de contra-indicaties: redenen wanneer niet (of slechts gedeeltelijk) gemasseerd mag worden. Zie bijvoorbeeld de klassieke massage." }
+  ]
+}

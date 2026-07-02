@@ -73,21 +73,8 @@
   <section class="section">
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">RUST</span>
-      <div class="reviews">
-        <div class="review"><blockquote>"Erg fijn om lekker samen met je kind bezig te zijn en er ook thuis mee verder aan de slag te gaan. Heerlijk ontspannen en daarbij goede tips voor bij buikkrampjes en huilen."</blockquote><cite>— Ellen, Spoordonk</cite></div>
-        <div class="review"><blockquote>"Fien wordt helemaal rustig en ontspannen van een massage. Ook heeft de cursus van Mirjam mij — als kersverse moeder — meer zelfvertrouwen gegeven over omgaan met het lichaam van en bewegen met je baby. Echt een aanrader!"</blockquote><cite>— Imke, Boxtel</cite></div>
-        <div class="review"><blockquote>"Cursus was super leuk, gezellig, interessant en leerzaam! Mirjam is flexibel en speelt goed in op de behoefte van je baby."</blockquote><cite>— Esther, Boxtel</cite></div>
-        <div class="review"><blockquote>"Ik heb de cursus heel gezellig en leuk gevonden en we kregen ook goede tips hoe om te gaan met je pasgeboren baby en leuke boekentips. De cursus was erg ontspannen en ik vind Mirjam een erg prettige instructrice! Mijn kindje genoot van de babymassage en ik masseer mijn kindje regelmatig!"</blockquote><cite>— Harriette, Gemonde</cite></div>
-        <div class="review"><blockquote>"Tijdens de laatste les hebben we kaartjes getrokken met een woord erop. Ik trok het kaartje met 'waardevol' erop. En dat was de cursus zeker! Heerlijk zo'n ochtend samen met je baby. Echt quality time voor mama en baby. Waardevol voor nu en in de toekomst!"</blockquote><cite>— Marielle, Boxtel</cite></div>
-        <div class="review"><blockquote>"Een moment om lekker met je kindje te tuttelen en met andere nieuwe mama's ervaringen uit te wisselen. Doordat je de massagetechnieken onder de knie hebt, maak ik ook thuis regelmatig tijd voor een fijne massage! Heerlijk!"</blockquote><cite>— Anika, Boxtel</cite></div>
-        <div class="review"><blockquote>"Het is een geniet-moment, zowel voor mijn dochtertje als voor mezelf. Ze begint al te lachen als ik met masseren begin en dat stimuleert mij alleen maar om het regelmatig te doen!"</blockquote><cite>— Marleen, Boxtel</cite></div>
-        <div class="review"><blockquote>"De cursus was voor mij een leuke en ontspannen manier om samen met mijn dochtertje bezig te zijn. Quality time samen. Thuis zet ik het masseren nog lekker door: ze vindt het heerlijk!"</blockquote><cite>— Amanda, Boxtel</cite></div>
-        <div class="review"><blockquote>"De cursus babymassage van Mirjam Maat was een feestje, zowel voor mij als mijn dochtertje. We hebben samen intens genoten van de gezellige ochtenden en genieten nu thuis nog steeds van de geleerde massagetechnieken."</blockquote><cite>— Manon, Eindhoven</cite></div>
-        <div class="review"><blockquote>"Ik heb samen met Leen enorm genoten van de cursus babymassage! Ik zou het iedereen aanraden! Ons actieve mannetje sliep na de lessen heerlijk!"</blockquote><cite>— Annet, Liempde</cite></div>
-        <div class="review"><blockquote>"De massage-cursus was een toppertje! Mijn baby en ik kwamen in een flow van genegenheid en ontspanning helemaal in contact met elkaar. Super om dit te mogen ervaren!"</blockquote><cite>— Célien, Lennisheuvel</cite></div>
-        <div class="review"><blockquote>"De cursus babymassage was leerzaam, ontspannend en zeer gezellig en mijn manneke sliep naderhand heerlijk."</blockquote><cite>— Linda, Boxtel</cite></div>
-        <div class="review"><blockquote>"Heerlijk moment om even met z'n tweetjes te ontspannen, en thuis ging de rust door omdat ze nog uren sliep!!"</blockquote><cite>— Kim, Liempde</cite></div>
-        <div class="review"><blockquote>"Leerzame cursus, mooie lesopbouw, heldere uitleg, prettige sfeer. Erg fijn en ontspannend voor je kindje en jezelf."</blockquote><cite>— Sjarai, Nijmegen</cite></div>
+      <div class="reviews" id="referenties-container">
+        <p style="color:var(--tekst-licht)">Reacties worden geladen…</p>
       </div>
     </div>
   </section>
@@ -143,6 +130,24 @@
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+(async function laadReferenties() {
+  const container = document.getElementById('referenties-container');
+  try {
+    const res = await fetch('/data/referenties.json');
+    const data = await res.json();
+    container.innerHTML = data.reviews.map(r => `
+      <div class="review">
+        <blockquote>"${r.quote}"</blockquote>
+        <cite>— ${r.naam}, ${r.plaats}</cite>
+      </div>
+    `).join('');
+  } catch (e) {
+    container.innerHTML = '<p>Reacties konden momenteel niet worden geladen.</p>';
+  }
+})();
+</script>
 </body>
 </html>

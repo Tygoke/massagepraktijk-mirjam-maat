@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Shiatsu-massage</p>
       <h1>Shiatsu-<em>massage</em></h1>
-      <p class="lead">Shi = vinger, atsu = druk. Een Japanse massagetechniek die de energie weer goed laat stromen en zorgt voor balans in het lichaam.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,24 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">BALANS</span>
       <div class="article with-aside">
-        <div class="prose">
-          <p>Shiatsu is een waardevolle behandelmethode voor allerlei klachten op lichamelijk en psychisch gebied, en het helpt de gezondheid te verbeteren. Met de duimen, handpalmen en soms ook de voeten wordt druk gegeven op de meridianen in het lichaam. Er wordt veel met lichaamsgewicht gewerkt, en ook strekkingen en rotaties van het lichaam komen aan bod.</p>
-          <p>De algemene basismassage heeft een preventieve werking en is zeer ontspannend en weldadig om te ondergaan. De massage wordt liggend op een shiatsu-mat gegeven, <strong>over de kleding heen</strong>. Het is handig om gemakkelijk zittende kleding aan te trekken. De massage zelf duurt 45–50 minuten, maar er wordt een uur voor uitgetrokken.</p>
-          <p>Wil je niet alleen ontspannen maar gericht klachten laten behandelen? Kijk dan bij <a href="shiatsutherapie.html">Shiatsu Therapie &amp; Japanse acupunctuur</a>.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag open">Nieuwe klanten welkom</span>
-          <div class="aside-figure" style="margin-top:1rem;">
-            <img src="images/7997042_orig.jpg" alt="Shiatsu-massage over de kleding" width="250" height="187" loading="lazy">
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Shiatsu-massage over de kleding" width="250" height="187" loading="lazy">
           </div>
-          <h3>In het kort</h3>
-          <dl>
-            <dt>Duur</dt><dd>45–50 min (uur gereserveerd)</dd>
-            <dt>Prijs</dt><dd><strong>&euro; 55</strong></dd>
-            <dt>Kleding</dt><dd>blijft aan — makkelijk zittend</dd>
-          </dl>
-          <a class="btn btn-primary btn-arrow" href="contact.html" style="width:100%; justify-content:center;">Afspraak maken</a>
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -136,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/shiatsu-massage.json');
+</script>
 </body>
 </html>

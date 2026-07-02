@@ -73,18 +73,8 @@
   <section class="section">
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">RUST</span>
-      <div class="regels">
-        <div class="regel"><span class="nr">01</span><p><strong>Enkel op afspraak.</strong> Een afspraak maken kan per telefoon, app of e-mail. Geef bij app of mail aan op welke dagen je kunt, dan stuur ik enkele voorstellen door.</p></div>
-        <div class="regel"><span class="nr">02</span><p><strong>Annuleren tot 24 uur vooraf</strong> is kosteloos. Bij annulering binnen 24 uur voor de afspraak ben ik genoodzaakt een factuur met de volledige kosten te sturen. Annuleren kan via telefoon en e-mail.</p></div>
-        <div class="regel"><span class="nr">03</span><p><strong>Eerste behandeling.</strong> Voor aanvang stel ik enkele vragen over je gezondheid. Ben je al onder behandeling van een arts of therapeut, of gebruik je medicijnen, dan kan ik je vragen te overleggen of een massage in deze periode wenselijk is.</p></div>
-        <div class="regel"><span class="nr">04</span><p><strong>Niet met een volle maag.</strong> Houd er rekening mee dat je niet met een volle maag komt; eet het laatste uur voor de massage liever niets.</p></div>
-        <div class="regel"><span class="nr">05</span><p><strong>Géén erotische massages.</strong> Massagepraktijk Mirjam Maat geeft uitsluitend therapeutische en ontspannende massages.</p></div>
-        <div class="regel"><span class="nr">06</span><p><strong>Aansprakelijkheid.</strong> De praktijk is niet aansprakelijk voor beschadiging of verlies van persoonlijke bezittingen.</p></div>
-        <div class="regel"><span class="nr">07</span><p><strong>Hygiëne.</strong> Ik zorg voor een prettige werkruimte en schone handdoeken. Fijn als je daar zelf ook aan denkt — neem bijvoorbeeld vooraf een douche of bad.</p></div>
-        <div class="regel"><span class="nr">08</span><p><strong>Natuurlijke oliën.</strong> Ik werk met oliën op natuurlijke basis. Soms worden etherische oliën gebruikt of bijgemengd met de massageolie.</p></div>
-        <div class="regel"><span class="nr">09</span><p><strong>Telefoons uit</strong> tijdens de massage.</p></div>
-        <div class="regel"><span class="nr">10</span><p><strong>Eerlijk over je gezondheid.</strong> Houd je informatie achter over eventuele ziektes of blessures, dan kun je mij niet verantwoordelijk houden voor de resultaten of gevolgen tijdens of na de massage.</p></div>
-        <div class="regel"><span class="nr">11</span><p><strong>Contra-indicaties.</strong> Kijk bij iedere soort massage naar de contra-indicaties: redenen wanneer niet (of slechts gedeeltelijk) gemasseerd mag worden. Zie bijvoorbeeld de <a href="klassieke-massage.html">klassieke massage</a>.</p></div>
+      <div class="regels" id="regels-container">
+        <p style="color:var(--tekst-licht)">Huisregels worden geladen…</p>
       </div>
     </div>
   </section>
@@ -129,6 +119,24 @@
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+(async function laadHuisregels() {
+  const container = document.getElementById('regels-container');
+  try {
+    const res = await fetch('/data/huisregels.json');
+    const data = await res.json();
+    container.innerHTML = data.regels.map((r, i) => `
+      <div class="regel">
+        <span class="nr">${String(i + 1).padStart(2, '0')}</span>
+        <p><strong>${r.titel}</strong> ${r.tekst}</p>
+      </div>
+    `).join('');
+  } catch (e) {
+    container.innerHTML = '<p>Huisregels konden momenteel niet worden geladen.</p>';
+  }
+})();
+</script>
 </body>
 </html>

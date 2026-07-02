@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Zwangerschapsmassage</p>
       <h1>Zwangerschaps<em>massage</em></h1>
-      <p class="lead">Je zwangerschap is een bijzondere, unieke tijd waarin in korte periode veel in je lichaam gebeurt. Een massage helpt je lichaam ontspannen en herstellen.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,33 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">RUST</span>
       <div class="article with-aside">
-        <div class="prose">
-          <p>Tijdens je zwangerschap veranderen hormonen je spieren en gewrichten. Alles wordt losser en soepeler, om ruimte te maken voor het kind en je voor te bereiden op de bevalling. Die veranderingen kunnen ervoor zorgen dat je sneller moe bent. Soms krijg je last van lichamelijke klachten als pijn in je nek en rug, bekkenklachten, vocht vasthouden en slecht slapen.</p>
-          <p>Zwangerschapsmassage helpt deze klachten te verminderen. De massage werkt ontspannend en brengt een gevoel van welbehagen. Je spieren worden soepeler, je ademhaling wordt dieper en je hoofd komt even helemaal tot rust. Je lichaam kan zich herstellen. Door even stil te staan bij alle veranderingen word je je ook bewuster van de baby in je buik. Uit onderzoek blijkt dat zwangerschapsmassage onder meer positieve effecten heeft op beter slapen, minder nek- en rugpijn en minder aanmaak van stresshormonen. Je baby kan de aanraking voelen en vaart er wel bij.</p>
-
-          <h2>Op vele manieren mogelijk</h2>
-          <ul>
-            <li>In stabiele zijligging op de tafel</li>
-            <li>Zittend op een gymbal, leunend op de tafel</li>
-            <li>Als het nog kan: in rugligging op het Aqama warm-watermatras — je rug wordt heerlijk gemasseerd terwijl je zelf op het warme matras ligt. Ook je kindje geniet van het meedeinen.</li>
-          </ul>
-
-          <h2>Zwangerschapskadobon</h2>
-          <p>De massage is ook een geweldig kado waarmee je een zwangere vriendin, zus of collega kunt verrassen. Er is een speciale bon voor een zwangerschapsmassage van 1 uur. Kijk bij de <a href="tarieven.html">tarieven</a> voor meer informatie.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag dicht">Voor bestaande klanten</span>
-          <div class="aside-figure" style="margin-top:1rem;">
-            <img src="images/691202_orig.jpg" alt="Ontspannen tijdens de zwangerschapsmassage" width="1100" height="733" loading="lazy">
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Ontspannen tijdens de zwangerschapsmassage" width="1100" height="733" loading="lazy">
           </div>
-          <h3>In het kort</h3>
-          <dl>
-            <dt>Duur</dt><dd>60 minuten</dd>
-            <dt>Prijs</dt><dd><strong>&euro; 60</strong></dd>
-            <dt>Kado</dt><dd>speciale zwangerschapskadobon</dd>
-          </dl>
-          <a class="btn btn-ghost" href="contact.html" style="width:100%; justify-content:center;">Vraag naar mogelijkheden</a>
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -145,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/zwangerschapsmassage.json');
+</script>
 </body>
 </html>

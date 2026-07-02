@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Shiatsu Therapie</p>
       <h1>Shiatsu Therapie <em>&amp; Japanse acupunctuur</em></h1>
-      <p class="lead">Mijn diepste specialisatie: gerichte behandeling van klachten vanuit de Chinese geneeswijze — het lichaam als systeem, balans als doel.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,40 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">KRACHT</span>
       <div class="article with-aside">
-        <div class="prose">
-          <h2 style="margin-top:0;">Japanse technieken</h2>
-          <p>Shiatsu Therapie is bij mij een combinatie van shiatsu massage en Japanse acupunctuur. De Japanse acupunctuur is anders dan de Chinese: de naalden zijn zeer kort, dun en nauwelijks voelbaar. Daarom is deze methode ook geschikt voor kinderen.</p>
-          <p>Ook werk ik met andere Japanse technieken, zoals de <strong>shanshin-naald</strong>: hiermee wordt over de huid getikt, waardoor de huid ontspant en knoopjes en stagnaties verdwijnen. Daarnaast gebruik ik <strong>moxa-warmtetherapie</strong> — het kruid Artemisia Vulgaris wordt vlakbij de huid gebrand. De warmte die hiervan afkomt werkt diep in op het lichaam: het ontspant en werkt zowel voedend als helend, en wordt als zeer aangenaam ervaren.</p>
-
-          <h2>Welke klachten</h2>
-          <p>Klachten die goed verholpen kunnen worden met shiatsu therapie:</p>
-          <ul>
-            <li>Allerlei stress-symptomen, bijnier-uitputting en burn-out</li>
-            <li>Depressie</li>
-            <li>Hooikoorts en immuniteitsklachten</li>
-            <li>Overgangsklachten</li>
-            <li>Restless legs</li>
-            <li>Rug-, nek- of schouderklachten</li>
-            <li>Slapeloosheid en vermoeidheid</li>
-            <li>Zwangerschapsklachten</li>
-          </ul>
-
-          <h2>Aantal sessies</h2>
-          <p>Bij Shiatsu Therapie werk ik aan één of meerdere klachten. De eerste keer is een intake, waarbij ik de medische achtergrond in kaart breng en we overleggen aan welke klacht gewerkt gaat worden. Daarna volgt de behandeling. Na afloop kun je beslissen of je verder wilt met een aantal behandelingen; samen bespreken we of wekelijkse of tweewekelijkse sessies nodig zijn. Om resultaat te krijgen volstaan 1 of 2 sessies niet — daarom worden ze per 5 aangeboden.</p>
-          <p>Kijk bij de <a href="tarieven.html">tarieven</a> voor de mogelijkheden.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag open">Nieuwe klanten welkom</span>
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Shiatsu Therapie &amp; Japanse acupunctuur" width="500" height="374" loading="lazy">
+          </div>
           <h3 style="margin-top:1rem;">In het kort</h3>
-          <dl>
-            <dt>Intake + shiatsu massage</dt><dd>90 min · <strong>&euro; 75</strong></dd>
-            <dt>5 wekelijkse behandelingen</dt><dd>5 &times; 50 min · <strong>&euro; 225</strong></dd>
-            <dt>5 sessies om de week</dt><dd>5 &times; 50 min · <strong>&euro; 245</strong></dd>
-            <dt>Losse sessie acupunctuur</dt><dd>60 min · <strong>&euro; 55</strong></dd>
-            <dt>Geschikt voor</dt><dd>volwassenen &amp; kinderen</dd>
-          </dl>
-          <a class="btn btn-primary btn-arrow" href="contact.html" style="width:100%; justify-content:center;">Afspraak maken</a>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -152,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/shiatsutherapie.json');
+</script>
 </body>
 </html>

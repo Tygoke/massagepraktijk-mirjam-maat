@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Klassieke massage</p>
       <h1>Klassieke massage <em>(sportmassage)</em></h1>
-      <p class="lead">Gericht op de algehele ontspanning van lichaam en geest — en op soepele, goed doorbloede spieren.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,50 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">RUST</span>
       <div class="article with-aside">
-        <div class="prose">
-          <p>De klassieke massage is gericht op de algehele ontspanning van lichaam en geest. Ze verzacht pijn en stijfheid in spieren en gewrichten, verbetert de doorbloeding en stimuleert de afvoer van afvalstoffen. De rustgevende en herstelbevorderende massage neemt spanning weg in de spieren en vermindert het stressniveau in lichaam en geest. Dit leidt tot een betere gezondheid en een gevoel van welbevinden.</p>
-
-          <h2>De behandeling</h2>
-          <p>De klassieke lichaamsmassage richt zich voornamelijk op de spieren en de gewrichten. De massage kan desgewenst als <strong>sportmassage</strong> worden gegeven; dan ligt de nadruk meer op het masseren van de spieren en niet op de ontspanning. Door basisgrepen zoals strijkingen, knedingen, drukken en schudden wordt invloed uitgeoefend op de spieren. Bij pijn of stijfheid wordt de betrokken plek met specifieke grepen behandeld. Alle grepen maken het spierstelsel weer soepel en goed doorbloed, zodat je beter kunt functioneren.</p>
-
-          <h2>Een klassieke massage helpt bij</h2>
-          <ul>
-            <li>Stress, vermoeidheid en slapeloosheid</li>
-            <li>Rugklachten en pijnlijke gewrichten</li>
-            <li>Pijnlijke of gevoelige nek en schouders</li>
-            <li>Spierpijn en rusteloze benen</li>
-            <li>Hoofdpijn (er is ook een speciale <a href="hoofdpijn-massage.html">hoofdpijnmassage</a>)</li>
-            <li>RSI-klachten</li>
-          </ul>
-
-          <h2>Contra-indicaties</h2>
-          <p>Er zijn redenen waarom niet of slechts gedeeltelijk gemasseerd kan worden:</p>
-          <ul>
-            <li>Hartklachten of hartafwijkingen — geen massage</li>
-            <li>Ernstige vaataandoeningen — geen massage</li>
-            <li>Bot- en spierziektes — geen massage</li>
-            <li>Teveel pijn en vermoeidheid — geen massage</li>
-            <li>Besmettelijke huidziektes — geen of gedeeltelijk, afhankelijk van de huid</li>
-            <li>Koorts en griep — geen massage</li>
-            <li>Infectieziektes — geen massage</li>
-            <li>Steenpuisten — plaatselijk niet, op de plek van de puist</li>
-          </ul>
-          <p class="note">Twijfel je of een massage verstandig is? Bekijk de <a href="huisregels.html">huisregels</a> of neem even contact op.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag dicht">Voor bestaande klanten</span>
-          <div class="aside-figure" style="margin-top:1rem;">
-            <img src="images/7442903_orig.jpg" alt="Klassieke ontspanningsmassage" width="830" height="591" loading="lazy">
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Klassieke ontspanningsmassage" width="830" height="591" loading="lazy">
           </div>
-          <h3>In het kort</h3>
-          <dl>
-            <dt>Duur</dt><dd>60 minuten</dd>
-            <dt>Prijs</dt><dd><strong>&euro; 60</strong></dd>
-            <dt>Variant</dt><dd>sport- of ontspanningsmassage</dd>
-          </dl>
-          <p style="font-size:.82rem; color:var(--tekst-licht);">Oliemassages zijn per januari 2026 gesloten voor nieuwe klanten.</p>
-          <a class="btn btn-ghost" href="contact.html" style="width:100%; justify-content:center;">Vraag naar mogelijkheden</a>
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -162,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/klassieke-massage.json');
+</script>
 </body>
 </html>

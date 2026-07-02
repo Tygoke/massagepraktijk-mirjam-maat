@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Hoofdpijnmassage</p>
       <h1>Hoofdpijn<em>massage</em></h1>
-      <p class="lead">Eén op de vijf Nederlanders heeft minstens één dag per week hoofdpijn. Massage is een van de manieren om die klachten te verminderen — of er helemaal vanaf te komen.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,28 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">ZORG</span>
       <div class="article with-aside">
-        <div class="prose">
-          <p>Veel mensen weten niet dat er verschillende manieren zijn om hoofdpijn te verminderen. Massage is er een van. Deze massage kan hoofdpijnklachten verlichten en soms zelfs compleet wegnemen. De behandeling duurt ongeveer een half uur, waarin de schouders, nek en het hoofd worden gemasseerd. Het zorgt ervoor dat de spieren soepel worden gemaakt, zodat alles goed blijft stromen en er minder kans is op verkramping van de spieren — met als gevolg minder (of een kleinere kans op) hoofdpijn. Het is een prettige massage om te ontvangen.</p>
-
-          <h2>Oorzaken van hoofdpijn</h2>
-          <p>Hoofdpijn kan veel oorzaken hebben: te weinig vocht binnenkrijgen, stress, een slechte houding, slaaptekort, te weinig lichaamsbeweging, overmatig alcoholgebruik of een trauma aan het hoofd. Ook bepaalde aandoeningen kunnen hoofdpijn veroorzaken, zoals hart- en vaataandoeningen, hoge of lage bloeddruk, menstruatieproblemen en bloedarmoede. Soms zorgen zelfs bepaalde voedingsstoffen voor hoofdpijn.</p>
-
-          <h2>Migraine of spanningshoofdpijn</h2>
-          <p>Er zijn verschillende soorten hoofdpijn; migraine en spanningshoofdpijn zijn de bekendste twee. Bij een migraine-aanval of een zware hoofdpijn wordt je niet gemasseerd — dat is dan het laatste waar je behoefte aan hebt. Maar heb je last van spanning of stress, dan is het raadzaam enkele hoofdpijnmassages te ondergaan. Zelfs bij een lichte hoofdpijn kan de massage de pijn wegnemen of in ieder geval verzachten.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag dicht">Voor bestaande klanten</span>
-          <div class="aside-figure" style="margin-top:1rem;">
-            <img src="images/5262205_orig.jpg" alt="Hoofdpijnmassage van nek en schouders" width="500" height="374" loading="lazy">
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Hoofdpijnmassage van nek en schouders" width="500" height="374" loading="lazy">
           </div>
-          <h3>In het kort</h3>
-          <dl>
-            <dt>Duur</dt><dd>ongeveer 30 minuten</dd>
-            <dt>Prijs</dt><dd><strong>&euro; 60</strong></dd>
-            <dt>Gericht op</dt><dd>nek, schouders &amp; hoofd</dd>
-          </dl>
-          <a class="btn btn-ghost" href="contact.html" style="width:100%; justify-content:center;">Vraag naar mogelijkheden</a>
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -140,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/hoofdpijn-massage.json');
+</script>
 </body>
 </html>

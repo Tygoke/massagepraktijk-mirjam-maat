@@ -73,16 +73,8 @@
   <section class="section">
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">RUST</span>
-      <div class="cards">
-        <a class="card" href="https://www.facebook.com/massagepraktijkmm" target="_blank" rel="noopener noreferrer">
-          <div class="card-body"><span class="card-num">Social media</span><h3>Facebook</h3><p>Volg de praktijk op Facebook voor nieuws, aanbiedingen en sfeerbeelden.</p><span class="card-link">facebook.com/massagepraktijkmm</span></div>
-        </a>
-        <a class="card" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-          <div class="card-body"><span class="card-num">Zakelijk</span><h3>LinkedIn</h3><p>Bekijk het professionele profiel van Mirjam Maat op LinkedIn.</p><span class="card-link">Profiel op LinkedIn</span></div>
-        </a>
-        <a class="card" href="contact.html">
-          <div class="card-body"><span class="card-num">Direct contact</span><h3>Contactgegevens</h3><p>Telefoon, e-mail, adres, route en openingstijden — alles op één plek.</p><span class="card-link">Naar contact</span></div>
-        </a>
+      <div class="cards" id="links-container">
+        <p style="color:var(--tekst-licht)">Links worden geladen…</p>
       </div>
       <p class="note" style="margin-top:2rem; max-width:60ch;">Heeft Mirjam nog andere links of samenwerkingspartners die hier thuishoren (bijvoorbeeld de opleidingsinstituten Qing-Bai of Barada)? Die kunnen we hier eenvoudig toevoegen.</p>
     </div>
@@ -128,6 +120,27 @@
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+(async function laadLinks() {
+  const container = document.getElementById('links-container');
+  try {
+    const res = await fetch('/data/links.json');
+    const data = await res.json();
+    container.innerHTML = data.links.map(l => {
+      const extern = l.url.indexOf('http') === 0;
+      const attrs = extern ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `
+        <a class="card" href="${l.url}"${attrs}>
+          <div class="card-body"><span class="card-num">${l.categorie}</span><h3>${l.titel}</h3><p>${l.tekst}</p><span class="card-link">${l.label}</span></div>
+        </a>
+      `;
+    }).join('');
+  } catch (e) {
+    container.innerHTML = '<p>Links konden momenteel niet worden geladen.</p>';
+  }
+})();
+</script>
 </body>
 </html>

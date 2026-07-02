@@ -66,7 +66,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Mama-massage</p>
       <h1>Mama-<em>massage</em></h1>
-      <p class="lead">Pas moeder geworden? Laat je verwennen met een heerlijke Mama-massage — speciaal om weer tot rust en in balans te komen.</p>
+      <p class="lead" id="ms-lead">Laden…</p>
     </div>
   </section>
 
@@ -74,25 +74,17 @@
     <div class="wrap">
       <span class="section-wm" aria-hidden="true">ZORG</span>
       <div class="article with-aside">
-        <div class="prose">
-          <p>Omdat je lichaam nog moet herstellen van de zwangerschap en bevalling, kun je vanaf 4 weken na de bevalling (6 weken na een keizersnede) terecht voor de Mama-massage. Kom even een uurtje voor jezelf genieten. Ik weet uit ervaring dat het dragen en voeden van je kindje vermoeiend kan zijn voor je rug, nek en schouders.</p>
-          <p>Deze ontspanningsmassage is vooral gericht op de spieren die je als mama het meest belast. Na de massage voel je je als herboren! Tijdens de massage werk ik afwisselend met shiatsu en gewone massagetechnieken. Zo worden de vaak stijve nek- en schouderspieren goed aangepakt, en worden acupunctuurpunten (via shiatsu) ingezet om bijvoorbeeld overtollig vocht af te voeren.</p>
-          <p>De Mama-massage is natuurlijk ook leuk om kado te geven, bijvoorbeeld als kraamkado. Hiervoor worden speciale kadobonnen gemaakt. Kijk voor meer informatie bij de <a href="tarieven.html">tarieven</a>.</p>
-        </div>
+        <div class="prose" id="ms-tekst"><p>Laden…</p></div>
 
         <aside class="aside-card">
-          <span class="tag dicht">Voor bestaande klanten</span>
-          <div class="aside-figure" style="margin-top:1rem;">
-            <img src="images/9975156_orig.jpg" alt="Mama-massage, even tijd voor jezelf" width="1066" height="800" loading="lazy">
+          <span class="tag" id="ms-tag"></span>
+          <div class="aside-figure" id="ms-figure" style="margin-top:1rem; display:none;">
+            <img id="ms-img" src="" alt="Mama-massage, even tijd voor jezelf" width="1066" height="800" loading="lazy">
           </div>
-          <h3>In het kort</h3>
-          <dl>
-            <dt>Duur</dt><dd>60 minuten</dd>
-            <dt>Prijs</dt><dd><strong>&euro; 60</strong></dd>
-            <dt>Vanaf</dt><dd>4 weken na bevalling (6 na keizersnede)</dd>
-            <dt>Kado</dt><dd>leuk als kraamkado</dd>
-          </dl>
-          <a class="btn btn-ghost" href="contact.html" style="width:100%; justify-content:center;">Vraag naar mogelijkheden</a>
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info"></dl>
+          <p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht); display:none;"></p>
+          <a class="btn" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;"></a>
         </aside>
       </div>
     </div>
@@ -137,7 +129,11 @@
 
 <div class="callbar"><a href="tel:0645279843"><span class="lbl">Afspraak</span> <span class="num">06-45279843</span></a></div>
 
+<script src="render.js"></script>
 <script src="main.js"></script>
-<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+laadMassagePagina('/data/massages/mama-massage.json');
+</script>
 </body>
 </html>
