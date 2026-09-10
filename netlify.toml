@@ -1,4 +1,10 @@
-# Massagepraktijk Mirjam Maat — statische multi-page site
+# Massagepraktijk Mirjam Maat
+# Statische site, gebouwd met Eleventy. De gepubliceerde map is _site.
+# Er stonden geen redirects of headers in de vorige versie; die zijn er dus ook niet.
+
 [build]
-  publish = "."
-  command = ""
+  publish = "_site"
+  command = "npx @11ty/eleventy"
+
+[build.environment]
+  NODE_VERSION = "22"

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="Handige links en vindplaatsen van Massagepraktijk Mirjam Maat in Boxtel: Facebook, LinkedIn en contactgegevens.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">LINKS</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Links</p>
+      <h1><em>Links</em> &amp; vindplaatsen</h1>
+      <p class="lead">Waar je Massagepraktijk Mirjam Maat verder kunt vinden en volgen.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">RUST</span>
+      <div class="cards" id="links-container">
+{%- for link in links.links %}
+          <a class="card" href="{{ link.url }}"{% if "http" in link.url %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            <div class="card-body"><span class="card-num">{{ link.categorie }}</span><h3>{{ link.titel }}</h3><p>{{ link.tekst }}</p><span class="card-link">{{ link.label }}</span></div>
+          </a>
+{%- endfor %}
+      </div>
+      <p class="note" style="margin-top:2rem; max-width:60ch;">Heeft Mirjam nog andere links of samenwerkingspartners die hier thuishoren (bijvoorbeeld de opleidingsinstituten Qing-Bai of Barada)? Die kunnen we hier eenvoudig toevoegen.</p>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+# Pages CMS — Massagepraktijk Mirjam Maat
+#
+# Hier staat wat Mirjam zelf kan aanpassen. Bewust beperkt: teksten, prijzen,
+# openingstijden en foto's wel — de navigatie, paginavolgorde en opmaak niet.
+# Elk veld heeft een korte uitleg die in het CMS onder het veld verschijnt.
+
+media:
+  input: src/images
+  output: /images
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "Nieuw: {path} (via Pages CMS, door {userName})"
+      update: "Gewijzigd: {path} (via Pages CMS, door {userName})"
+      delete: "Verwijderd: {path} (via Pages CMS, door {userName})"
+
+content:
+  # ------------------------------------------------------------------
+  - name: bedrijf
+    label: Contactgegevens
+    type: file
+    path: src/_data/bedrijf.yml
+    description: Deze gegevens staan op ALLE pagina's (onderaan, in de belbalk en op de contactpagina). Eén keer wijzigen past de hele site aan.
+    fields:
+      - name: naam
+        label: Naam van de praktijk
+        type: string
+        required: true
+        description: Staat onderaan elke pagina en in de copyrightregel.
+      - name: telefoon_weergave
+        label: Telefoonnummer (zoals getoond)
+        type: string
+        required: true
+        description: "Zoals bezoekers het zien, bijvoorbeeld: 06-45279843"
+      - name: telefoon_link
+        label: Telefoonnummer (om te bellen)
+        type: string
+        required: true
+        description: "Zonder streepjes of spaties, bijvoorbeeld: 0645279843. Dit is wat er gebeurt als iemand op het nummer tikt."
+      - name: telefoon_toelichting
+        label: Toelichting bij telefoon
+        type: string
+        description: "Kleine grijze tekst onder het nummer op de contactpagina, bijvoorbeeld: ook WhatsApp & Tikkie"
+      - name: email
+        label: E-mailadres
+        type: string
+        required: true
+        description: Wordt gebruikt voor alle e-maillinks op de site.
+      - name: straat
+        label: Straat en huisnummer
+        type: string
+        required: true
+        description: "Bijvoorbeeld: Koevoortseweg 24"
+      - name: postcode
+        label: Postcode
+        type: string
+        required: true
+      - name: plaats
+        label: Plaats
+        type: string
+        required: true
+      - name: kvk
+        label: KvK-nummer
+        type: string
+        description: Staat in de onderste balk van elke pagina en op de contactpagina.
+      - name: iban
+        label: IBAN
+        type: string
+        description: Staat alleen op de contactpagina.
+      - name: facebook_url
+        label: Facebook-adres (link)
+        type: string
+        description: "De volledige link, beginnend met https://"
+      - name: facebook_label
+        label: Facebook-adres (zoals getoond)
+        type: string
+        description: De tekst die bezoekers zien in plaats van de lange link.
+
+  # ------------------------------------------------------------------
+  - name: openingstijden
+    label: Openingstijden
+    type: file
+    path: src/_data/openingstijden.yml
+    description: De tabel met werktijden op de contactpagina.
+    fields:
+      - name: regels
+        label: Werktijden
+        type: object
+        list: true
+        description: Elke regel is één rij in de tabel. Sleep om de volgorde te wijzigen.
+        fields:
+          - name: dag
+            label: Dag(en)
+            type: string
+            description: "Bijvoorbeeld: Woensdag, of: Maandag · Dinsdag · Donderdag"
+          - name: tijden
+            label: Tijden
+            type: string
+            description: "Bijvoorbeeld: 9:00 · 11:00 uur, of: Gesloten"
+      - name: opmerking
+        label: Opmerking onder de tabel
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder de tabel. Nu gebruikt voor de melding dat avonduren vaak volgeboekt zijn.
+
+  # ------------------------------------------------------------------
+  - name: tarieven
+    label: Tarieven
+    type: file
+    path: src/_data/tarieven.yml
+    description: De prijslijst op de tarievenpagina, gegroepeerd in blokken.
+    fields:
+      - name: blokken
+        label: Tariefblokken
+        type: object
+        list: true
+        description: Elk blok is een groep behandelingen met een eigen kop en beschikbaarheid.
+        fields:
+          - name: titel
+            label: Titel van het blok
+            type: string
+            required: true
+            description: "Bijvoorbeeld: Oliemassages — 60 minuten"
+          - name: status
+            label: Beschikbaarheid
+            type: select
+            required: true
+            description: Bepaalt of er een groen vinkje of een oranje waarschuwing bij staat.
+            options:
+              values:
+                - name: open
+                  label: Open voor nieuwe klanten (groen vinkje)
+                - name: dicht
+                  label: Gesloten voor nieuwe klanten (oranje waarschuwing)
+          - name: statusmelding
+            label: Toelichting bij de beschikbaarheid
+            type: string
+            description: "Bijvoorbeeld: Beschikbaar voor nieuwe klanten"
+          - name: prijzen
+            label: Prijsregels
+            type: object
+            list: true
+            description: De behandelingen met hun prijs binnen dit blok.
+            fields:
+              - name: naam
+                label: Behandeling
+                type: string
+              - name: prijs
+                label: Prijs
+                type: string
+                description: "Inclusief euroteken, bijvoorbeeld: € 60,-"
+
+  # ------------------------------------------------------------------
+  - name: nieuws
+    label: Nieuws & aanbod
+    type: file
+    path: src/_data/nieuws.yml
+    description: "Het nieuwsoverzicht. Let op: de bovenste twee berichten staan óók op de homepagina."
+    fields:
+      - name: berichten
+        label: Nieuwsberichten
+        type: object
+        list: true
+        description: Zet het nieuwste bericht bovenaan — de bovenste twee verschijnen op de homepagina.
+        fields:
+          - name: datum
+            label: Datum
+            type: string
+            required: true
+            description: "Vrije tekst, bijvoorbeeld: Voorjaar 2026 of 1 april 2025"
+          - name: badge
+            label: Labeltekst
+            type: string
+            description: "Klein gekleurd label, bijvoorbeeld: Nieuw of Let op. Laat leeg voor geen label."
+          - name: badge_type
+            label: Labelkleur
+            type: select
+            description: Alleen van toepassing als je hierboven een labeltekst hebt ingevuld.
+            options:
+              values:
+                - name: ""
+                  label: Blauw (standaard)
+                - name: amber
+                  label: Oranje (waarschuwing)
+          - name: titel
+            label: Titel
+            type: string
+            required: true
+          - name: tekst
+            label: Bericht
+            type: text
+            options:
+              rows: 6
+            description: Gewone tekst. Laat een lege regel tussen alinea's als je meerdere alinea's wilt.
+
+  # ------------------------------------------------------------------
+  - name: referenties
+    label: Ervaringen van cursisten
+    type: file
+    path: src/_data/referenties.yml
+    description: De reacties op de referentiepagina.
+    fields:
+      - name: reviews
+        label: Reacties
+        type: object
+        list: true
+        fields:
+          - name: quote
+            label: Wat de cursist zegt
+            type: text
+            options:
+              rows: 4
+            description: Zonder aanhalingstekens — die worden automatisch toegevoegd.
+          - name: naam
+            label: Voornaam
+            type: string
+          - name: plaats
+            label: Woonplaats
+            type: string
+
+  # ------------------------------------------------------------------
+  - name: huisregels
+    label: Huisregels
+    type: file
+    path: src/_data/huisregels.yml
+    description: De genummerde regels op de huisregelspagina. De nummering gaat automatisch.
+    fields:
+      - name: regels
+        label: Huisregels
+        type: object
+        list: true
+        fields:
+          - name: titel
+            label: Kop (vetgedrukt)
+            type: string
+            description: "Het vetgedrukte begin van de regel, bijvoorbeeld: Enkel op afspraak."
+          - name: tekst
+            label: Toelichting
+            type: text
+            options:
+              rows: 4
+
+  # ------------------------------------------------------------------
+  - name: links
+    label: Links
+    type: file
+    path: src/_data/links.yml
+    description: De kaarten op de linkspagina.
+    fields:
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - name: categorie
+            label: Categorie
+            type: string
+            description: "Klein bovenschrift, bijvoorbeeld: Social media"
+          - name: titel
+            label: Titel
+            type: string
+          - name: tekst
+            label: Omschrijving
+            type: text
+            options:
+              rows: 3
+          - name: url
+            label: Link
+            type: string
+            description: Begint de link met https:// dan opent hij automatisch in een nieuw tabblad.
+          - name: label
+            label: Link zoals getoond
+            type: string
+            description: De tekst die bezoekers zien in plaats van de lange link.
+
+  # ------------------------------------------------------------------
+  # Massagepagina's — per pagina één bestand, zodat er niets kan verdwijnen
+  # ------------------------------------------------------------------
+  - name: massage_shiatsutherapie
+    label: "Massage: Shiatsu therapie & acupunctuur"
+    type: file
+    path: src/_data/massages/shiatsutherapie.yml
+    fields: &massagevelden
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
+
+  - name: massage_shiatsu_massage
+    label: "Massage: Shiatsu-massage"
+    type: file
+    path: src/_data/massages/shiatsu-massage.yml
+    fields: *massagevelden
+
+  - name: massage_klassieke_massage
+    label: "Massage: Klassieke & sportmassage"
+    type: file
+    path: src/_data/massages/klassieke-massage.yml
+    fields: *massagevelden
+
+  - name: massage_hoofdpijn_massage
+    label: "Massage: Hoofdpijnmassage"
+    type: file
+    path: src/_data/massages/hoofdpijn-massage.yml
+    fields: *massagevelden
+
+  - name: massage_zwangerschapsmassage
+    label: "Massage: Zwangerschapsmassage"
+    type: file
+    path: src/_data/massages/zwangerschapsmassage.yml
+    fields: *massagevelden
+
+  - name: massage_mama_massage
+    label: "Massage: Mama-massage"
+    type: file
+    path: src/_data/massages/mama-massage.yml
+    fields: *massagevelden

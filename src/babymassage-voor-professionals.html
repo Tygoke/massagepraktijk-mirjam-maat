@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babymassage voor professionals — workshop op maat — Mirjam Maat</title>
+<meta name="description" content="Workshop Shantala babymassage voor professionals in kinderdagopvang, kraamzorg, ziekenhuis of als gastouder. Een dagdeel of complete dag — een aanbieding op maat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">LEREN</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Baby &amp; Kind <span>/</span> Voor professionals</p>
+      <h1>Babymassage <em>voor professionals</em></h1>
+      <p class="lead">Werk je met baby's? Dan verzorg ik een korte cursus of workshop Shantala babymassage — op maat voor jouw organisatie.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">ZORG</span>
+      <div class="article with-aside">
+        <div class="prose">
+          <p>Werk je met baby's — bijvoorbeeld in de kinderdagopvang, in de kraamzorg, een ziekenhuis, of als gastouder? Dan verzorgt Massagepraktijk Mirjam Maat een korte cursus of workshop Shantala babymassage.</p>
+          <p>De volledige Shantala babymassage wordt geleerd. Daarnaast wordt aandacht besteed aan de positieve effecten en het belang van massage bij baby's. Een korte cursus van een dagdeel of een complete dag behoort tot de mogelijkheden.</p>
+          <p>Neem contact op voor een <strong>aanbieding op maat</strong>!</p>
+        </div>
+
+        <aside class="aside-card">
+          <span class="tag open">Op aanvraag</span>
+          <h3 style="margin-top:1rem;">Voor wie</h3>
+          <dl>
+            <dt>Doelgroep</dt><dd>kinderdagopvang, kraamzorg, ziekenhuis, gastouders</dd>
+            <dt>Vorm</dt><dd>dagdeel of complete dag</dd>
+            <dt>Inhoud</dt><dd>volledige Shantala + theorie</dd>
+          </dl>
+          <a class="btn btn-primary btn-arrow" href="contact.html" style="width:100%; justify-content:center;">Vraag een offerte</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+</body>
+</html>

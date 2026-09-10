@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huisregels — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="De huisregels van Massagepraktijk Mirjam Maat in Boxtel: afspraken, annuleren binnen 24 uur, gezondheidsvragen, hygiëne, natuurlijke oliën en contra-indicaties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">ZORG</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Huisregels</p>
+      <h1>Huisregels <em>&amp; afspraken</em></h1>
+      <p class="lead">Voor een prettige en veilige behandeling voor iedereen. Lees deze punten even door voordat je langskomt.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">RUST</span>
+      <div class="regels" id="regels-container">
+{%- for regel in huisregels.regels %}
+          <div class="regel">
+            <span class="nr">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+            <p><strong>{{ regel.titel }}</strong> {{ regel.tekst }}</p>
+          </div>
+{%- endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>

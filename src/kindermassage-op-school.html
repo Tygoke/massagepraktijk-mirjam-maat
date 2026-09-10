@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindermassage op school &amp; kinderdagverblijf — Mirjam Maat Boxtel</title>
+<meta name="description" content="Kindermassage op scholen en kinderdagverblijven in de regio Boxtel. In groepsverband leren kinderen elkaar op een respectvolle manier masseren — voor rust, focus en een fijne sfeer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">LEREN</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Baby &amp; Kind <span>/</span> Kindermassage op school</p>
+      <h1>Kindermassage <em>op school</em></h1>
+      <p class="lead">Kindermassage voor kinderen tussen 4 en 12 jaar wordt ook in groepsverband aangeboden — op scholen en kinderdagverblijven.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">ZORG</span>
+      <div class="article with-aside">
+        <div class="prose">
+          <p>Naast de <a href="kindermassage.html">individuele kindermassage</a> en de <a href="cursus-kindermassage.html">cursus voor ouders</a> verzorg ik kindermassage in groepsverband, op scholen en kinderdagverblijven. Kinderen leren elkaar op een respectvolle, speelse manier masseren — over de kleding heen.</p>
+          <p>Uit Zweeds onderzoek is gebleken dat kinderen die regelmatig gemasseerd worden rustiger zijn, zelfverzekerder, en zich bewust zijn van hun eigen lichaam en grenzen. In een klas of groep draagt dit bij aan rust, concentratie en een prettige sfeer.</p>
+          <p>Ook kan gedacht worden aan sessies voor ouders: hoe maak je contact met je kind, hoe raak je het spelenderwijs aan en masseer je het.</p>
+          <p class="note">Interesse voor jouw school of kinderdagverblijf? Neem contact op voor een aanbod op maat — qua opzet, duur en aantal kinderen denk ik graag met je mee.</p>
+        </div>
+
+        <aside class="aside-card">
+          <span class="tag open">Op aanvraag</span>
+          <h3 style="margin-top:1rem;">Voor wie</h3>
+          <dl>
+            <dt>Locatie</dt><dd>scholen &amp; kinderdagverblijven</dd>
+            <dt>Leeftijd</dt><dd>4 tot 12 jaar</dd>
+            <dt>Vorm</dt><dd>groepsverband, op maat</dd>
+          </dl>
+          <a class="btn btn-primary btn-arrow" href="contact.html" style="width:100%; justify-content:center;">Vraag een aanbod</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+</body>
+</html>

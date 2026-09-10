@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; afspraak — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="Contact met Massagepraktijk Mirjam Maat in Boxtel: telefoon 06-45279843, e-mail, adres Koevoortseweg 24, openingstijden en route. Enkel op afspraak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">AFSPRAAK</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Contact</p>
+      <h1>Neem <em>contact op</em></h1>
+      <p class="lead">Afspraken worden gemaakt via telefoon, app of e-mail. Geef aan welke dagen en tijdstippen je kunt, welk soort massage je wilt en of er klachten zijn — je ontvangt dan een bericht terug met opties.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">RUST</span>
+      <div class="contact-grid">
+        <div>
+          <p class="label"><span>Gegevens</span></p>
+          <ul class="contact-list">
+            <li><span class="k">Telefoon</span><span class="v"><a href="tel:{{ bedrijf.telefoon_link }}">{{ bedrijf.telefoon_weergave }}</a><small>{{ bedrijf.telefoon_toelichting }}</small></span></li>
+            <li><span class="k">E-mail</span><span class="v"><a href="mailto:{{ bedrijf.email }}">{{ bedrijf.email }}</a></span></li>
+            <li><span class="k">Adres</span><span class="v">{{ bedrijf.straat }}<br>{{ bedrijf.postcode }} {{ bedrijf.plaats }}</span></li>
+            <li><span class="k">Facebook</span><span class="v"><a href="{{ bedrijf.facebook_url }}" target="_blank" rel="noopener noreferrer">{{ bedrijf.facebook_label }}</a></span></li>
+            <li><span class="k">KvK</span><span class="v">{{ bedrijf.kvk }}</span></li>
+            <li><span class="k">IBAN</span><span class="v">{{ bedrijf.iban }}</span></li>
+          </ul>
+
+          <p class="label" style="margin-top:2.5rem;"><span>Werktijden — op afspraak</span></p>
+          <table class="tijden">
+            <tbody>
+{%- for regel in openingstijden.regels %}
+                <tr><td>{{ regel.dag }}</td><td>{{ regel.tijden }}</td></tr>
+{%- endfor %}
+            </tbody>
+          </table>
+          <p class="note">{{ openingstijden.opmerking }}</p>
+        </div>
+
+        <div>
+          <iframe class="maps" title="Locatie Massagepraktijk Mirjam Maat — Koevoortseweg 24, Boxtel"
+            src="https://maps.google.com/maps?q=Koevoortseweg+24,+5281+SC+Boxtel&output=embed&hl=nl"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <a class="btn btn-primary btn-arrow" href="tel:{{ bedrijf.telefoon_link }}">{{ bedrijf.telefoon_weergave }}</a>
+            <a class="btn btn-ghost" href="mailto:{{ bedrijf.email }}">Stuur een e-mail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>document.getElementById('jaar').textContent=new Date().getFullYear();</script>
+</body>
+</html>

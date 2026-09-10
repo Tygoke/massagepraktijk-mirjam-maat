@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiatsu-massage — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="Shiatsu-massage in Boxtel: een Japanse drukpunt-massage over de kleding heen, op een shiatsu-mat. Laat de energie stromen, brengt balans en werkt preventief en ontspannend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">RUST</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="soort-massage.html">Massages</a> <span>/</span> Shiatsu-massage</p>
+      <h1>Shiatsu-<em>massage</em></h1>
+      <p class="lead" id="ms-lead">{{ massage.lead }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">BALANS</span>
+      <div class="article with-aside">
+        <div class="prose" id="ms-tekst">{{ massage.tekst | md | safe }}</div>
+
+        <aside class="aside-card">
+          <span class="tag {{ massage.status_type }}" id="ms-tag">{{ massage.status_label }}</span>
+          {% if massage.afbeelding %}<div class="aside-figure" id="ms-figure" style="margin-top:1rem;">
+            <img id="ms-img" src="{{ massage.afbeelding }}" alt="Shiatsu-massage over de kleding" width="250" height="187" loading="lazy">
+          </div>{% endif %}
+          <h3 style="margin-top:1rem;">In het kort</h3>
+          <dl id="ms-info">{% for r in massage.info %}<dt>{{ r.label }}</dt><dd>{{ r.waarde }}</dd>{% endfor %}</dl>
+          {% if massage.opmerking %}<p id="ms-opmerking" style="font-size:.82rem; color:var(--tekst-licht);">{{ massage.opmerking }}</p>{% endif %}
+          <a class="btn {% if massage.status_type == 'open' %}btn-primary btn-arrow{% else %}btn-ghost{% endif %}" id="ms-cta" href="contact.html" style="width:100%; justify-content:center;">{% if massage.status_type == 'open' %}Afspraak maken{% else %}Vraag naar mogelijkheden{% endif %}</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

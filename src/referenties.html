@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referenties — ervaringen van cursisten — Mirjam Maat Boxtel</title>
+<meta name="description" content="Ervaringen van cursisten van de babymassage cursus bij Mirjam Maat in Boxtel. Lees wat ouders vertellen over de cursus, de sfeer en het contact met hun kindje.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">DANK</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Referenties</p>
+      <h1>Reacties <em>van cursisten</em></h1>
+      <p class="lead">Wat deelnemers vertellen over de cursus babymassage — over quality time, ontspanning en het contact met hun kindje.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">RUST</span>
+      <div class="reviews" id="referenties-container">
+{%- for review in referenties.reviews %}
+          <div class="review">
+            <blockquote>"{{ review.quote }}"</blockquote>
+            <cite>— {{ review.naam }}, {{ review.plaats }}</cite>
+          </div>
+{%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt cta-band" style="color:var(--navy);">
+    <div class="wrap">
+      <h2 class="title" style="margin-bottom:1rem;">Zelf de cursus <em>volgen?</em></h2>
+      <p style="color:var(--tekst-licht); max-width:48ch; margin:0 auto 2rem;">Bekijk de cursusinformatie en data, of neem direct contact op.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-arrow" href="cursus-informatie.html">Cursusinformatie</a>
+        <a class="btn btn-ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>

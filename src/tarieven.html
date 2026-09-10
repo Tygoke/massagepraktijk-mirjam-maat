@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarieven 2026 — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="Tarieven 2026 van Massagepraktijk Mirjam Maat in Boxtel: oliemassages, massage over de kleding, shiatsu-therapie met Japanse acupunctuur, baby- en kindermassage cursussen en kadobonnen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">KRACHT</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Tarieven</p>
+      <h1>Tarieven <em>2026</em></h1>
+      <p class="lead">Alle prijzen op een rij. Tarieven zijn vrijgesteld van btw. Betaling enkel contant ter plaatse of via Tikkie; strippenkaart, therapie en cursussen kunnen ook op factuur.</p>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap tarief-blok">
+      <span class="section-wm" aria-hidden="true">BALANS</span>
+      <div class="tarief-grid" id="tarieven-container">
+{%- for blok in tarieven.blokken %}
+          <div class="cat">
+            <p class="cat-titel">{{ blok.titel }}</p>
+            <p class="cat-status {{ blok.status }}">{% if blok.status == 'open' %}✓{% else %}⚠{% endif %} {{ blok.statusmelding }}</p>
+            <ul class="prijslijst">
+{%- for prijs in blok.prijzen %}
+              <li><span class="naam">{{ prijs.naam }}</span><span class="prijs">{{ prijs.prijs }}</span></li>
+{%- endfor %}
+            </ul>
+          </div>
+{%- endfor %}
+      </div>
+
+      <p class="fineprint">
+        Kadobonnen beschikbaar voor ontspanningsmassage, zwangerschapsmassage, babymassage cursus en meer &mdash; vraag ernaar via <a href="mailto:{{ bedrijf.email }}">e-mail</a> of telefoon.<br>
+        Alle tarieven zijn vrijgesteld van btw. &nbsp;&middot;&nbsp; Betaling enkel contant ter plaatse of via Tikkie. &nbsp;&middot;&nbsp; Strippenkaart, therapie en cursussen op factuur of via Tikkie.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-band" style="background:var(--bg-donker);">
+    <div class="wrap">
+      <h2 class="title" style="margin-bottom:1rem; color:var(--navy);">Een afspraak <em>maken?</em></h2>
+      <p style="color:var(--tekst-licht); max-width:50ch; margin:0 auto 2rem;">Bel of app, geef je beschikbare dagen door en het soort massage. Je ontvangt dan een bericht terug met opties.</p>
+      <a class="btn btn-primary btn-arrow" href="tel:{{ bedrijf.telefoon_link }}">{{ bedrijf.telefoon_weergave }}</a>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>

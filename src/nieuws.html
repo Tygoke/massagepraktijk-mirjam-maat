@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nieuws &amp; aanbiedingen — Massagepraktijk Mirjam Maat Boxtel</title>
+<meta name="description" content="Nieuws en aanbiedingen van Massagepraktijk Mirjam Maat: cursus 5 elementen, aanmeldstop oliemassages, Nine Star Ki, Holistic Pulsing en de Japanse acupunctuur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Klee+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Naar inhoud</a>
+{% include "header.njk" %}
+
+<main id="main">
+  <section class="page-header">
+    <span class="page-header-wm" aria-hidden="true">NIEUWS</span>
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> <span>/</span> Nieuws</p>
+      <h1>Nieuws <em>&amp; aanbiedingen</em></h1>
+      <p class="lead">Het laatste nieuws uit de praktijk — nieuwe cursussen, behandelvormen en belangrijke mededelingen.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="section-wm" aria-hidden="true">KRACHT</span>
+      <div class="timeline" id="nieuws-container">
+{%- for bericht in nieuws.berichten %}
+          <article class="news">
+            <div class="news-date">{{ bericht.datum }}</div>
+            <div>
+              {% if bericht.badge %}<span class="badge{% if bericht.badge_type %} {{ bericht.badge_type }}{% endif %}">{{ bericht.badge }}</span>{% endif %}
+              <h3>{{ bericht.titel }}</h3>
+              {% for alinea in bericht.tekst | split("\n\n") %}<p>{{ alinea }}</p>{% endfor %}
+            </div>
+          </article>
+{%- endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}
+
+{% include "callbar.njk" %}
+
+<script src="main.js"></script>
+<script>
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>

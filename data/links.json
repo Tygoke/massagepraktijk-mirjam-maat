@@ -1,7 +1,0 @@
-{
-  "links": [
-    { "categorie": "Social media", "titel": "Facebook", "tekst": "Volg de praktijk op Facebook voor nieuws, aanbiedingen en sfeerbeelden.", "url": "https://www.facebook.com/massagepraktijkmm", "label": "facebook.com/massagepraktijkmm" },
-    { "categorie": "Zakelijk", "titel": "LinkedIn", "tekst": "Bekijk het professionele profiel van Mirjam Maat op LinkedIn.", "url": "https://www.linkedin.com", "label": "Profiel op LinkedIn" },
-    { "categorie": "Direct contact", "titel": "Contactgegevens", "tekst": "Telefoon, e-mail, adres, route en openingstijden — alles op één plek.", "url": "contact.html", "label": "Naar contact" }
-  ]
-}

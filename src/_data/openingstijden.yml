@@ -1,0 +1,12 @@
+regels:
+  - dag: Maandag · Dinsdag · Donderdag
+    tijden: 9:00 · 11:00 · 13:30/14:00 uur
+  - dag: Woensdag
+    tijden: 9:00 · 11:00 uur
+  - dag: Vrijdag
+    tijden: 9:00 · 11:00 · 13:00 uur
+  - dag: Avond (ma / di / wo)
+    tijden: 19:30 – 20:30 uur
+  - dag: Zaterdag & Zondag
+    tijden: Gesloten
+opmerking: "Let op: de avonduren (ma/di/wo, 19:30–20:30) zijn normaal gesproken een maand van tevoren al volgeboekt."
