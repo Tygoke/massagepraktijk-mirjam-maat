@@ -285,7 +285,7 @@ content:
     label: "Massage: Shiatsu therapie & acupunctuur"
     type: file
     path: src/_data/massages/shiatsutherapie.yml
-    fields: &massagevelden
+    fields:
       - name: lead
         label: Introzin
         type: text
@@ -342,28 +342,283 @@ content:
     label: "Massage: Shiatsu-massage"
     type: file
     path: src/_data/massages/shiatsu-massage.yml
-    fields: *massagevelden
+    fields:
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
 
   - name: massage_klassieke_massage
     label: "Massage: Klassieke & sportmassage"
     type: file
     path: src/_data/massages/klassieke-massage.yml
-    fields: *massagevelden
+    fields:
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
 
   - name: massage_hoofdpijn_massage
     label: "Massage: Hoofdpijnmassage"
     type: file
     path: src/_data/massages/hoofdpijn-massage.yml
-    fields: *massagevelden
+    fields:
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
 
   - name: massage_zwangerschapsmassage
     label: "Massage: Zwangerschapsmassage"
     type: file
     path: src/_data/massages/zwangerschapsmassage.yml
-    fields: *massagevelden
+    fields:
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
 
   - name: massage_mama_massage
     label: "Massage: Mama-massage"
     type: file
     path: src/_data/massages/mama-massage.yml
-    fields: *massagevelden
+    fields:
+      - name: lead
+        label: Introzin
+        type: text
+        options:
+          rows: 3
+        description: De grote zin bovenaan de pagina, onder de titel.
+      - name: status_label
+        label: Labeltekst rechtsboven
+        type: string
+        description: "Bijvoorbeeld: Nieuwe klanten welkom of Voor bestaande klanten"
+      - name: status_type
+        label: Beschikbaarheid
+        type: select
+        required: true
+        description: Bepaalt de kleur van het label én welke knop onderaan verschijnt (Afspraak maken of Vraag naar mogelijkheden).
+        options:
+          values:
+            - name: open
+              label: Open voor nieuwe klanten
+            - name: dicht
+              label: Alleen bestaande klanten
+      - name: afbeelding
+        label: Foto in het zijkader
+        type: image
+        description: Laat leeg als je geen foto wilt tonen. Het kader verdwijnt dan vanzelf.
+      - name: tekst
+        label: Hoofdtekst
+        type: text
+        options:
+          rows: 20
+        description: "Opmaak: begin een regel met ## voor een tussenkop, met - voor een opsomming. Zet **tekst** tussen sterretjes voor vet. Laat een lege regel tussen alinea's."
+      - name: info
+        label: Blokje 'In het kort'
+        type: object
+        list: true
+        description: De regels in het grijze kader rechts, bijvoorbeeld duur en prijs.
+        fields:
+          - name: label
+            label: Omschrijving
+            type: string
+            description: "Bijvoorbeeld: Duur of Prijs"
+          - name: waarde
+            label: Waarde
+            type: string
+            description: "Bijvoorbeeld: 60 minuten of € 55"
+      - name: opmerking
+        label: Kleine opmerking
+        type: text
+        options:
+          rows: 3
+        description: Kleine grijze tekst onder het kader. Laat leeg om hem te verbergen.
