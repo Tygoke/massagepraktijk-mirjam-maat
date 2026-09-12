@@ -49,3 +49,8 @@ berichten:
     badge: Nieuw
     titel: Zomerdeal 2026
     tekst: Je krijgt 30% korting bij elke nieuwe klant!
+  - datum: September 2026
+    badge: "\tNieuw"
+    badge_type: amber
+    titel: Thomas is gay??
+    tekst: Yo fakkaa, nieuwe update. thomas valt op mannen
